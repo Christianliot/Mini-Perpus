@@ -3,42 +3,39 @@
 @section('title', 'Daftar Kategori')
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="mb-0">Daftar Kategori</h3>
-        <a href="{{ route('categories.create') }}" class="btn btn-primary">+ Tambah Kategori</a>
+    <div class="page-head">
+        <h1>Daftar Kategori</h1>
+        <a href="{{ route('categories.create') }}" class="btn btn-accent">Tambah Kategori</a>
     </div>
 
-    <div class="card shadow-sm">
+    <div class="panel">
         <div class="table-responsive">
-            <table class="table table-striped table-hover align-middle mb-0">
-                <thead class="table-light">
+            <table class="table align-middle data-table">
+                <thead>
                     <tr>
                         <th style="width: 60px;">No</th>
                         <th>Nama Kategori</th>
                         <th>Deskripsi</th>
                         <th class="text-center" style="width: 130px;">Jumlah Buku</th>
-                        <th style="width: 170px;">Aksi</th>
+                        <th style="width: 150px;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($categories as $category)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $category->name }}</td>
-                            <td>{{ $category->description ?? '-' }}</td>
-                            <td class="text-center">
-                                <span class="badge bg-info text-dark">{{ $category->books_count }}</span>
-                            </td>
+                            <td class="fw-semibold">{{ $category->name }}</td>
+                            <td class="text-muted">{{ $category->description ?? '-' }}</td>
+                            <td class="text-center">{{ $category->books_count }}</td>
                             <td>
-                                <a href="{{ route('categories.edit', $category) }}"
-                                   class="btn btn-sm btn-warning">Edit</a>
-
+                                <a href="{{ route('categories.edit', $category) }}" class="link-edit">Edit</a>
+                                <span class="sep">|</span>
                                 <form action="{{ route('categories.destroy', $category) }}" method="POST"
                                       class="d-inline"
                                       onsubmit="return confirm('Yakin ingin menghapus kategori ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                    <button type="submit" class="link-delete">Hapus</button>
                                 </form>
                             </td>
                         </tr>

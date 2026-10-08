@@ -3,29 +3,25 @@
 @section('title', 'Beranda')
 
 @section('content')
-    <div class="text-center mb-4">
-        <h1 class="fw-bold">Mini-Perpus</h1>
-        <p class="text-muted">Sistem Manajemen Inventaris Perpustakaan</p>
+    <div class="mb-4">
+        <h1 class="mb-2">Inventaris Perpustakaan</h1>
+        <p class="text-muted mb-0">Catat kategori buku dan koleksi yang tersedia di perpustakaan fakultas.</p>
     </div>
 
-    <div class="row justify-content-center g-4">
-        <div class="col-md-5">
-            <div class="card h-100 shadow-sm text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Manajemen Kategori</h5>
-                    <p class="card-text text-muted">Kelola kategori buku perpustakaan.</p>
-                    <a href="{{ route('categories.index') }}" class="btn btn-primary">Buka Kategori</a>
-                </div>
+    <div>
+        <div class="menu-row">
+            <div>
+                <h2>Kategori</h2>
+                <p>Kelola pengelompokan buku.</p>
             </div>
+            <a href="{{ route('categories.index') }}" class="btn btn-accent">Buka</a>
         </div>
-        <div class="col-md-5">
-            <div class="card h-100 shadow-sm text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Manajemen Buku</h5>
-                    <p class="card-text text-muted">Kelola data buku dan stoknya.</p>
-                    <a href="{{ route('books.index') }}" class="btn btn-primary">Buka Buku</a>
-                </div>
+        <div class="menu-row">
+            <div>
+                <h2>Buku</h2>
+                <p>Kelola data buku dan stoknya.</p>
             </div>
+            <a href="{{ route('books.index') }}" class="btn btn-accent">Buka</a>
         </div>
     </div>
 @endsection

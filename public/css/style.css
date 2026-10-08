@@ -1,0 +1,239 @@
+:root {
+    --paper: #f7f3ec;
+    --ink: #2a2622;
+    --muted: #7b7266;
+    --line: #ddd3c3;
+    --accent: #8a3b2b;
+    --accent-dark: #6e2e21;
+    --danger: #a12d2d;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+}
+
+h1, h2, h3, h4, .brand {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+}
+
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+/* Header */
+.site-header {
+    border-bottom: 2px solid var(--ink);
+    padding: 0.9rem 0;
+    margin-bottom: 2rem;
+}
+
+.brand {
+    font-size: 1.4rem;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.brand:hover {
+    color: var(--ink);
+}
+
+.site-header .nav-link {
+    color: var(--muted);
+    padding: 0.25rem 0;
+    margin-left: 1.5rem;
+    border-bottom: 2px solid transparent;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Judul halaman */
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.page-head h1 {
+    font-size: 1.75rem;
+    margin: 0;
+}
+
+/* Panel putih */
+.panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
+
+.panel-body {
+    padding: 1.5rem;
+}
+
+/* Tombol */
+.btn-accent {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: #fff;
+    border-radius: 3px;
+}
+
+.btn-accent:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    color: #fff;
+}
+
+.btn-plain {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    border-radius: 3px;
+}
+
+.btn-plain:hover {
+    background: var(--paper);
+    border-color: var(--muted);
+    color: var(--ink);
+}
+
+/* Tabel */
+.data-table {
+    --bs-table-bg: transparent;
+    --bs-table-border-color: var(--line);
+    margin-bottom: 0;
+}
+
+.data-table thead th {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    color: var(--muted);
+    border-bottom: 2px solid var(--ink);
+    padding: 0.85rem 1rem;
+}
+
+.data-table tbody td {
+    padding: 0.85rem 1rem;
+}
+
+.data-table tbody tr:hover td {
+    background: #fbf8f2;
+}
+
+/* Aksi berupa teks */
+.link-edit,
+.link-delete {
+    font-size: 0.92rem;
+    background: none;
+    border: 0;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link-edit {
+    color: var(--accent);
+}
+
+.link-delete {
+    color: var(--danger);
+}
+
+.sep {
+    color: var(--line);
+    margin: 0 0.35rem;
+}
+
+/* Label kategori */
+.tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    padding: 0.05rem 0.5rem;
+}
+
+/* Form */
+.form-label {
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.form-control,
+.form-select {
+    border-color: var(--line);
+    border-radius: 3px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.2rem rgba(138, 59, 43, 0.15);
+}
+
+/* Alert */
+.alert {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left-width: 4px;
+    border-radius: 3px;
+    color: var(--ink);
+}
+
+.alert-success {
+    border-left-color: #3f7d4e;
+}
+
+.alert-danger {
+    border-left-color: var(--danger);
+}
+
+/* Beranda */
+.menu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.menu-row:first-child {
+    border-top: 2px solid var(--ink);
+}
+
+.menu-row h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.2rem;
+}
+
+.menu-row p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid var(--line);
+    margin-top: 3rem;
+    padding: 1rem 0 2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}

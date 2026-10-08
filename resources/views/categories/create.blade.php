@@ -3,10 +3,12 @@
 @section('title', 'Tambah Kategori')
 
 @section('content')
-    <h3 class="mb-3">Tambah Kategori</h3>
+    <div class="page-head">
+        <h1>Tambah Kategori</h1>
+    </div>
 
-    <div class="card shadow-sm">
-        <div class="card-body">
+    <div class="panel">
+        <div class="panel-body">
             <form action="{{ route('categories.store') }}" method="POST">
                 @csrf
 
@@ -20,7 +22,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="description" class="form-label">Deskripsi</label>
                     <textarea name="description" id="description" rows="3"
                               class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
@@ -29,8 +31,8 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="{{ route('categories.index') }}" class="btn btn-secondary">Batal</a>
+                <button type="submit" class="btn btn-accent">Simpan</button>
+                <a href="{{ route('categories.index') }}" class="btn btn-plain">Batal</a>
             </form>
         </div>
     </div>

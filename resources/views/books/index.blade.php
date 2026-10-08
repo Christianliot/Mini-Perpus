@@ -3,15 +3,15 @@
 @section('title', 'Daftar Buku')
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="mb-0">Daftar Buku</h3>
-        <a href="{{ route('books.create') }}" class="btn btn-primary">+ Tambah Buku</a>
+    <div class="page-head">
+        <h1>Daftar Buku</h1>
+        <a href="{{ route('books.create') }}" class="btn btn-accent">Tambah Buku</a>
     </div>
 
-    <div class="card shadow-sm">
+    <div class="panel">
         <div class="table-responsive">
-            <table class="table table-striped table-hover align-middle mb-0">
-                <thead class="table-light">
+            <table class="table align-middle data-table">
+                <thead>
                     <tr>
                         <th style="width: 60px;">No</th>
                         <th>Judul Buku</th>
@@ -19,30 +19,27 @@
                         <th class="text-center">Tahun Terbit</th>
                         <th class="text-center">Stok</th>
                         <th>Kategori</th>
-                        <th style="width: 170px;">Aksi</th>
+                        <th style="width: 150px;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($books as $book)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $book->title }}</td>
+                            <td class="fw-semibold">{{ $book->title }}</td>
                             <td>{{ $book->author }}</td>
                             <td class="text-center">{{ $book->published_year }}</td>
                             <td class="text-center">{{ $book->stock }}</td>
+                            <td><span class="tag">{{ $book->category->name }}</span></td>
                             <td>
-                                <span class="badge bg-info text-dark">{{ $book->category->name }}</span>
-                            </td>
-                            <td>
-                                <a href="{{ route('books.edit', $book) }}"
-                                   class="btn btn-sm btn-warning">Edit</a>
-
+                                <a href="{{ route('books.edit', $book) }}" class="link-edit">Edit</a>
+                                <span class="sep">|</span>
                                 <form action="{{ route('books.destroy', $book) }}" method="POST"
                                       class="d-inline"
                                       onsubmit="return confirm('Yakin ingin menghapus buku ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                    <button type="submit" class="link-delete">Hapus</button>
                                 </form>
                             </td>
                         </tr>

@@ -3,10 +3,12 @@
 @section('title', 'Edit Kategori')
 
 @section('content')
-    <h3 class="mb-3">Edit Kategori</h3>
+    <div class="page-head">
+        <h1>Edit Kategori</h1>
+    </div>
 
-    <div class="card shadow-sm">
-        <div class="card-body">
+    <div class="panel">
+        <div class="panel-body">
             <form action="{{ route('categories.update', $category) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -21,7 +23,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="description" class="form-label">Deskripsi</label>
                     <textarea name="description" id="description" rows="3"
                               class="form-control @error('description') is-invalid @enderror">{{ old('description', $category->description) }}</textarea>
@@ -30,8 +32,8 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Perbarui</button>
-                <a href="{{ route('categories.index') }}" class="btn btn-secondary">Batal</a>
+                <button type="submit" class="btn btn-accent">Perbarui</button>
+                <a href="{{ route('categories.index') }}" class="btn btn-plain">Batal</a>
             </form>
         </div>
     </div>

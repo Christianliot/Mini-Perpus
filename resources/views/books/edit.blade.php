@@ -3,10 +3,12 @@
 @section('title', 'Edit Buku')
 
 @section('content')
-    <h3 class="mb-3">Edit Buku</h3>
+    <div class="page-head">
+        <h1>Edit Buku</h1>
+    </div>
 
-    <div class="card shadow-sm">
-        <div class="card-body">
+    <div class="panel">
+        <div class="panel-body">
             <form action="{{ route('books.update', $book) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -53,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="category_id" class="form-label">Kategori</label>
                     <select name="category_id" id="category_id"
                             class="form-select @error('category_id') is-invalid @enderror">
@@ -70,8 +72,8 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Perbarui</button>
-                <a href="{{ route('books.index') }}" class="btn btn-secondary">Batal</a>
+                <button type="submit" class="btn btn-accent">Perbarui</button>
+                <a href="{{ route('books.index') }}" class="btn btn-plain">Batal</a>
             </form>
         </div>
     </div>
